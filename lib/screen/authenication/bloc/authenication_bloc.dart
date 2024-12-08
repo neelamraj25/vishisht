@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vishisht_project/screen/authenication/bloc/authenication_event.dart';
@@ -40,9 +39,11 @@ Future<void> _onLogin(LoginEvent event, Emitter<AuthenticationState> emit) async
     }
   }
 
-    Future<void> _onLogout(LogoutEvent event, Emitter<AuthenticationState> emit) async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.clear();
-    emit(Unauthenticated()); 
-  }
+Future<void> _onLogout(LogoutEvent event, Emitter<AuthenticationState> emit) async {
+  final prefs = await SharedPreferences.getInstance();
+  await prefs.clear();
+  print("Logged out and cleared preferences"); 
+  emit(Unauthenticated());
+}
+
 }

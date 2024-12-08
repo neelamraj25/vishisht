@@ -23,6 +23,8 @@ class _LoginScreenState extends State<LoginScreen>
 
   bool isLoading = false;
 
+  
+
   late AnimationController _animationController;
 
   @override
@@ -52,7 +54,9 @@ class _LoginScreenState extends State<LoginScreen>
           setState(() {
             isLoading = false; 
           });
-        
+
+          Navigator.pushReplacementNamed(
+              context, '/dashboard'); 
         } else if (state is AuthError) {
           setState(() {
             isLoading = false; 
@@ -171,7 +175,6 @@ class _LoginScreenState extends State<LoginScreen>
                                     context
                                         .read<AuthenticationBloc>()
                                         .add(LoginEvent(email, password));
-                                        
                                   }
                                 },
                           style: ElevatedButton.styleFrom(

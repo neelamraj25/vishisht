@@ -1,6 +1,6 @@
-## Vishisht Dashboard App
+## Vishisht App
 
-The Vishisht Dashboard App is a Flutter-based mobile application designed to showcase a list of posts with infinite scrolling, user authentication, and theming capabilities. Users can view detailed information about posts, toggle between light and dark themes, and log in or out seamlessly.
+The Vishisht App is a Flutter-based mobile application designed to showcase a list of posts with infinite scrolling, user authentication, and theming capabilities. Users can view detailed information about posts, toggle between light and dark themes, and log in or out seamlessly.
 
 
 ## Features

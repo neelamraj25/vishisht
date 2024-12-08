@@ -14,8 +14,10 @@ void main() {
   runApp(
     MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => AuthenticationBloc()..add(CheckSessionEvent())),
-        BlocProvider(create: (context) => ThemeBloc()), 
+        BlocProvider(
+            create: (context) =>
+                AuthenticationBloc()..add(CheckSessionEvent())),
+        BlocProvider(create: (context) => ThemeBloc()),
       ],
       child: MyApp(),
     ),
@@ -30,23 +32,11 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           title: 'Vishisht',
           debugShowCheckedModeBanner: false,
-          theme: themeState.themeData, 
+          theme: themeState.themeData,
           initialRoute: '/',
           routes: {
             '/': (context) => const SplashScreen(),
-            '/login': (context) =>
-                BlocBuilder<AuthenticationBloc, AuthenticationState>(
-                  builder: (context, state) {
-                    if (state is Authenticated) {
-                      return const DashboardScreen();
-                    } else if (state is Unauthenticated) {
-                      return const LoginScreen();
-                    } else {
-                      return const Scaffold(
-                          body: Center(child: CircularProgressIndicator()));
-                    }
-                  },
-                ),
+            '/login': (context) => const LoginScreen(),
             '/dashboard': (context) => const DashboardScreen(),
           },
         );
